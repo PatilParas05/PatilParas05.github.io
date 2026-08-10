@@ -15,7 +15,9 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/sections.css" />
     <script src="js/app.js" defer></script>
+    <script src="js/sections.js" defer></script>
   </head>
   <body>
     <div id="loading-screen">
@@ -92,14 +94,13 @@
               <span class="action-static">AND I'M&nbsp;</span>
               <span class="ticker-wrapper">
                 <span class="ticker-track" id="ticker-track">
-                  <span class="ticker-item">A DEVELOPER</span>
-                  <span class="ticker-item">A DESIGNER</span>
-                  <span class="ticker-item">A CREATOR</span>
+                  <span class="ticker-item">AN ANDROID DEVELOPER</span>
+                  <span class="ticker-item">AN AI/ML ENGINEER</span>
                   <span class="ticker-item">A PROBLEM SOLVER</span>
                   <span class="ticker-item-gold">STILL LEARNING.</span>
-                  <span class="ticker-item">A STORYTELLER</span>
-                  <span class="ticker-item">AN ARTIST</span>
-                  <span class="ticker-item">A DEVELOPER</span>
+                  <span class="ticker-item">A BUILDER</span>
+                  <span class="ticker-item">A LIFELONG LEARNER</span>
+                  <span class="ticker-item">AN ANDROID DEVELOPER</span>
                 </span>
               </span>
             </div>
@@ -188,12 +189,188 @@
       </header>
     </main>
 
-    <section class="project-index" id="projects">
+    <section class="about-section" id="aboutme">
+      <div class="about-container">
+        <div class="about-photo-frame">
+          <img src="assets/img/profile.jpg" alt="Paras Patil" class="about-photo" />
+        </div>
+
+        <div class="about-content">
+          <span class="section-kicker">ABOUT ME</span>
+          <h2 class="about-heading">
+            Building at the intersection of apps &amp; intelligence.
+          </h2>
+          <p class="about-text">
+            I'm Paras — an Android and AI/ML engineer who likes taking a fuzzy idea and
+            turning it into something people can actually tap, use, and rely on. On one
+            side I'm writing Kotlin and shipping Android features; on the other I'm
+            training models and figuring out how to get them to run fast, small, and
+            reliably on a phone instead of just in a notebook. I care a lot about the
+            unglamorous parts too — smooth performance, clean state, and code the next
+            person (often future-me) can actually read.
+          </p>
+          <p class="about-text">
+            Outside of screens, I'm usually reading about new ML papers I'll probably
+            never fully implement, tinkering with a side project that has no business
+            plan, or trying to explain what I do to my parents in one sentence.
+          </p>
+
+          <div class="about-facts">
+            <div class="about-fact">
+              <span class="about-fact-label">Focus</span>
+              <span class="about-fact-value">Android &amp; Applied ML</span>
+            </div>
+            <div class="about-fact">
+              <span class="about-fact-label">Currently</span>
+              <span class="about-fact-value">Building on-device AI experiences</span>
+            </div>
+            <div class="about-fact">
+              <span class="about-fact-label">Tools</span>
+              <span class="about-fact-value">Kotlin · Python · TensorFlow Lite</span>
+            </div>
+            <div class="about-fact">
+              <span class="about-fact-label">Mindset</span>
+              <span class="about-fact-value">Still learning, always shipping</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-section" id="experience">
+      <div class="section-container">
+        <span class="section-kicker">EXPERIENCE</span>
+        <h2 class="section-heading">Where I've put in the work</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Android Developer Intern</h3>
+              <span class="timeline-duration">Jun 2025 — Present</span>
+            </div>
+            <p class="timeline-org">Company Name</p>
+            <ul class="timeline-points">
+              <li>Built and shipped Kotlin-based features for a production app used by thousands of people.</li>
+              <li>Integrated an on-device TensorFlow Lite model to personalize the in-app experience.</li>
+              <li>Cut cold-start time by ~30% through profiling, lazy loading, and dependency cleanup.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">AI/ML Research Assistant</h3>
+              <span class="timeline-duration">Jan 2025 — May 2025</span>
+            </div>
+            <p class="timeline-org">University Research Lab</p>
+            <ul class="timeline-points">
+              <li>Trained and evaluated computer vision models as part of an ongoing research project.</li>
+              <li>Built an automated data-preprocessing pipeline that cut manual prep time significantly.</li>
+              <li>Documented experiments and results for a paper currently in progress.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Freelance Android Developer</h3>
+              <span class="timeline-duration">2023 — 2024</span>
+            </div>
+            <p class="timeline-org">Self-employed</p>
+            <ul class="timeline-points">
+              <li>Delivered multiple Android apps end-to-end for small business clients.</li>
+              <li>Owned everything from client conversations to Play Store release.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="education-section" id="education">
+      <div class="section-container">
+        <span class="section-kicker">EDUCATION</span>
+        <h2 class="section-heading">What I studied to get here</h2>
+
+        <div class="education-list">
+          <div class="education-item">
+            <div class="education-header">
+              <h3 class="education-degree">B.Tech, Computer Engineering (AI &amp; ML)</h3>
+              <span class="education-year">2022 — 2026</span>
+            </div>
+            <p class="education-org">Your College / University Name</p>
+            <div class="education-tags">
+              <span class="education-tag">Machine Learning</span>
+              <span class="education-tag">Android Development</span>
+              <span class="education-tag">Data Structures &amp; Algorithms</span>
+              <span class="education-tag">Deep Learning</span>
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-header">
+              <h3 class="education-degree">Higher Secondary, Science</h3>
+              <span class="education-year">2020 — 2022</span>
+            </div>
+            <p class="education-org">Your School Name</p>
+            <div class="education-tags">
+              <span class="education-tag">Physics</span>
+              <span class="education-tag">Mathematics</span>
+              <span class="education-tag">Computer Science</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="activities-section" id="activities">
+      <div class="section-container">
+        <span class="section-kicker">ACTIVITIES</span>
+        <h2 class="section-heading">Stuff I do outside the job title</h2>
+
+        <div class="activities-grid">
+          <div class="activity-card">
+            <span class="activity-emoji" aria-hidden="true">🏆</span>
+            <h3 class="activity-title">Hackathons</h3>
+            <p class="activity-desc">
+              Finalist at a 24-hour hackathon, where our team shipped an Android app with
+              a working on-device AI feature from scratch.
+            </p>
+          </div>
+
+          <div class="activity-card">
+            <span class="activity-emoji" aria-hidden="true">🌱</span>
+            <h3 class="activity-title">Open Source</h3>
+            <p class="activity-desc">
+              Contribute small fixes and features to Android and ML tooling repos when I
+              find something worth improving.
+            </p>
+          </div>
+
+          <div class="activity-card">
+            <span class="activity-emoji" aria-hidden="true">🎤</span>
+            <h3 class="activity-title">Community</h3>
+            <p class="activity-desc">
+              Helped organize a local Android/ML meetup and mentored a few junior
+              students getting started with Kotlin.
+            </p>
+          </div>
+
+          <div class="activity-card">
+            <span class="activity-emoji" aria-hidden="true">✍️</span>
+            <h3 class="activity-title">Writing</h3>
+            <p class="activity-desc">
+              Write occasional blog posts breaking down Android and ML concepts in plain
+              language — see the Blog section below.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-index" id="mywork">
       <div class="ascii-leaf-parent-container">
       </div>
       <div class="project-container">
         <div class="project-contents">
-          <h2 class="project-heading-text">PROJECTS</h2>
+          <h2 class="project-heading-text">MY WORK</h2>
 
           <div class="project-list">
             <a href="#" class="project-card-link">
