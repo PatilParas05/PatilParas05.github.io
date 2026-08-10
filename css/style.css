@@ -350,7 +350,41 @@
    .ticker-item-gold {
      color: var(--special-accent);
    }
-   
+
+   .hero-socials {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     gap: 12px;
+     margin-top: 100px;
+   }
+
+   .hero-social-link {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 44px;
+     height: 44px;
+     border-radius: 50%;
+     border: 1.5px solid var(--card-border);
+     color: var(--text-dark);
+     transition: transform 0.2s ease, background-color 0.2s ease,
+       border-color 0.2s ease, color 0.2s ease;
+   }
+
+   .hero-social-link:hover {
+     transform: translateY(-4px);
+     background-color: var(--accent-main);
+     border-color: var(--accent-main);
+     color: var(--background-color);
+   }
+
+   .hero-social-icon {
+     width: 20px;
+     height: 20px;
+   }
+
    .software-stack-container {
      position: absolute;
      top: 70vh;
