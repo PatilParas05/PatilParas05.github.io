@@ -1,5 +1,6 @@
 /* ==========================================================================
    About / Experience / Education / Activities sections
+   (Alternating background layout to match Work & Blog sections)
    ========================================================================== */
 
 /* Offset anchored scroll targets so the fixed navbar doesn't cover the
@@ -30,10 +31,16 @@
     max-width: 20ch;
   }
   
-  /* --- About --- */
+  /* --- About (Dark Background like Work Section) --- */
   .about-section {
-    background-color: var(--background-color);
+    background-color: var(--section-dark-bg);
     padding: 100px 8vw;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-section .section-kicker {
+    color: var(--section-dark-text);
+    opacity: 0.8;
   }
   
   .about-container {
@@ -50,8 +57,8 @@
     aspect-ratio: 1 / 1;
     border-radius: 20px;
     overflow: hidden;
-    border: 1.5px solid var(--card-border);
-    background-color: var(--secondary-background);
+    border: 1.5px solid var(--section-dark-border);
+    background-color: var(--dark-background-color);
     position: sticky;
     top: 110px;
   }
@@ -65,15 +72,15 @@
   
   .about-heading {
     font-size: clamp(1.8rem, 3.4vw, 2.4rem);
-    color: var(--text-dark);
+    color: var(--section-dark-text);
     line-height: 1.3;
     margin-bottom: 24px;
     max-width: 22ch;
   }
   
   .about-text {
-    color: var(--accent-text, var(--text-dark));
-    opacity: 0.85;
+    color: var(--section-dark-text);
+    opacity: 0.8;
     line-height: 1.7;
     margin-bottom: 18px;
     max-width: 62ch;
@@ -91,25 +98,36 @@
     flex-direction: column;
     gap: 4px;
     padding: 16px 18px;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--section-dark-border);
     border-radius: 12px;
+    background-color: color-mix(in srgb, var(--section-dark-bg) 85%, var(--section-dark-text) 5%);
   }
   
   .about-fact-label {
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent-main);
+    color: var(--section-dark-text);
+    opacity: 0.7;
   }
   
   .about-fact-value {
     font-size: 0.95rem;
-    color: var(--text-dark);
+    color: var(--section-dark-text);
   }
   
-  /* --- Experience (timeline) --- */
+  
+  /* --- Experience (Standard/Alternative Background like Blog Section) --- */
   .experience-section {
-    background-color: var(--secondary-background);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+  }
+  
+  .experience-section .section-heading,
+  .experience-section .timeline-role,
+  .experience-section .timeline-org,
+  .experience-section .timeline-points li {
+    color: var(--text-dark);
   }
   
   .timeline {
@@ -136,7 +154,7 @@
     height: 12px;
     border-radius: 50%;
     background-color: var(--accent-main);
-    border: 3px solid var(--secondary-background);
+    border: 3px solid var(--background-color);
   }
   
   .timeline-header {
@@ -189,9 +207,23 @@
     color: var(--accent-main);
   }
   
-  /* --- Education --- */
+  
+  /* --- Education (Dark Background Matching Work Section) --- */
   .education-section {
-    background-color: var(--background-color);
+    background-color: var(--section-dark-bg);
+    transition: background-color 0.3s ease;
+  }
+  
+  .education-section .section-heading,
+  .education-section .education-degree,
+  .education-section .education-org,
+  .education-section .education-tag {
+    color: var(--section-dark-text);
+  }
+  
+  .education-section .section-kicker {
+    color: var(--section-dark-text);
+    opacity: 0.8;
   }
   
   .education-list {
@@ -202,13 +234,14 @@
   
   .education-item {
     padding: 24px 28px;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--section-dark-border);
     border-radius: 16px;
+    background-color: color-mix(in srgb, var(--section-dark-bg) 90%, var(--section-dark-text) 3%);
     transition: border-color 0.3s ease, transform 0.3s ease;
   }
   
   .education-item:hover {
-    border-color: var(--accent-main);
+    border-color: var(--section-dark-text);
     transform: translateY(-2px);
   }
   
@@ -222,18 +255,17 @@
   
   .education-degree {
     font-size: 1.1rem;
-    color: var(--text-dark);
   }
   
   .education-year {
     font-family: var(--font-mono, "Ubuntu Mono", monospace);
     font-size: 0.85rem;
-    color: var(--accent-main);
+    color: var(--section-dark-text);
+    opacity: 0.8;
     white-space: nowrap;
   }
   
   .education-org {
-    color: var(--accent-text, var(--text-dark));
     opacity: 0.7;
     font-size: 0.95rem;
     margin: 4px 0 16px;
@@ -249,14 +281,21 @@
     font-size: 0.8rem;
     padding: 5px 12px;
     border-radius: 999px;
-    border: 1px solid var(--card-border);
-    color: var(--accent-text, var(--text-dark));
+    border: 1px solid var(--section-dark-border);
     opacity: 0.85;
   }
   
-  /* --- Activities --- */
+  
+  /* --- Activities (Standard/Alternative Background matching Blog Section) --- */
   .activities-section {
-    background-color: var(--secondary-background);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+  }
+  
+  .activities-section .section-heading,
+  .activities-section .activity-title,
+  .activities-section .activity-desc {
+    color: var(--text-dark);
   }
   
   .activities-grid {
@@ -269,6 +308,7 @@
     padding: 28px;
     border: 1px solid var(--card-border);
     border-radius: 16px;
+    background-color: var(--secondary-background);
     transition: border-color 0.3s ease, transform 0.3s ease;
   }
   
@@ -285,7 +325,6 @@
   
   .activity-title {
     font-size: 1.05rem;
-    color: var(--text-dark);
     margin-bottom: 8px;
   }
   
@@ -295,6 +334,7 @@
     color: var(--accent-text, var(--text-dark));
     opacity: 0.8;
   }
+  
   
   /* --- Scroll-reveal state (driven by js/sections.js) --- */
   .about-photo-frame,
@@ -330,6 +370,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+  
   
   /* --- Responsive --- */
   @media (max-width: 900px) {
