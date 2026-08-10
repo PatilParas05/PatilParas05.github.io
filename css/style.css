@@ -59,9 +59,9 @@
    
      --background-color: #121212;
      --secondary-background: #1a1a1a;
-     --dark-background-color: #0a0a0a;
+     --dark-background-color: #262626;
    
-     --section-dark-bg: #232323;
+     --section-dark-bg: #262626;
      --section-dark-text: #f5f6f6;
      --section-dark-border: rgba(255, 255, 255, 0.14);
    
@@ -753,7 +753,8 @@
      padding: 40px 24px;
      width: 100%;
      color: var(--section-dark-text);
-     transition: background-color 0.3s ease;
+     border-top: 1px solid var(--section-dark-border);
+     transition: background-color 0.3s ease, border-color 0.3s ease;
    }
    
    .footer-content {
@@ -780,28 +781,37 @@
    
    .footer-socials {
      display: flex;
-     gap: 10px;
+     gap: 12px;
      margin: 12px 0 24px;
    }
    
    .social-link {
-     display: block;
-     transition: transform 0.2s ease, opacity 0.2s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     border: 1px solid var(--section-dark-border);
+     transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
    }
    
    .social-link:hover {
      transform: scale(1.08);
-     opacity: 0.8;
+     opacity: 1;
+     background-color: color-mix(in srgb, var(--section-dark-text) 10%, transparent);
    }
    
    .social-icon {
-     width: 24px;
-     height: 24px;
+     width: 20px;
+     height: 20px;
      display: block;
-   }
-   
-   [data-theme="dark"] .social-icon {
-     filter: invert(1);
+     /* .site-footer always uses a dark background (var(--dark-background-color))
+        in both light and dark theme, so the icons need to always render as
+        solid white here — making this conditional on [data-theme="dark"]
+        left them forced to black (via brightness(0)) and invisible in light
+        mode, the same bug the project-section ascii-art had. */
+     filter: brightness(0) invert(1);
    }
    
    /* --- Responsive --- */
