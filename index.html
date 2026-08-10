@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal portfolio — Android and Ai Ml Engineer." />
+    <title>Paras Patil</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Ubuntu+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <div id="loading-screen">
+      <div class="loader-matrix-container">
+        <div class="matrix-dot"></div>
+        <div class="matrix-dot"></div>
+        <div class="matrix-dot matrix-hero"></div>
+        <div class="matrix-dot"></div>
+      </div>
+    </div>
+
+    <main>
+      <header class="hero-section">
+        <nav class="navbar">
+          <div class="nav-container">
+            <a href="index.html" class="logo-link" aria-label="Home">
+              <h1>Paras Patil</h1>
+            </a>
+
+            <div class="nav-actions">
+              <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button"
+                aria-label="Toggle dark mode"
+              >
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2" />
+                  <path
+                    d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M21 14.5A8.5 8.5 0 1 1 9.5 3a6.5 6.5 0 1 0 11.5 11.5z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </button>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+              <li><a href="#projects" class="nav-item">Projects</a></li>
+              <li><a href="#blogs" class="nav-item">Blog</a></li>
+              <li><a href="https://github.com" class="nav-item" target="_blank" rel="noopener">Github</a></li>
+              <li><a href="#contact" class="nav-item">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="hero-content">
+          <div class="headline-stack">
+            <h1 class="static-line">
+              HEY, I'M
+              <a href="#contact" class="stroke-text name-button" data-text="YOUR NAME">Paras Patil</a>
+            </h1>
+
+            <div class="action-line">
+              <span class="action-static">AND I'M&nbsp;</span>
+              <span class="ticker-wrapper">
+                <span class="ticker-track" id="ticker-track">
+                  <span class="ticker-item">A DEVELOPER</span>
+                  <span class="ticker-item">A DESIGNER</span>
+                  <span class="ticker-item">A CREATOR</span>
+                  <span class="ticker-item">A PROBLEM SOLVER</span>
+                  <span class="ticker-item-gold">STILL LEARNING.</span>
+                  <span class="ticker-item">A STORYTELLER</span>
+                  <span class="ticker-item">AN ARTIST</span>
+                  <span class="ticker-item">A DEVELOPER</span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+    </main>
+
+    <section class="project-index" id="projects">
+      <div class="ascii-leaf-parent-container">
+        <img src="assets/ascii-leaf.svg" alt="" class="ascii-art" aria-hidden="true" />
+      </div>
+      <div class="project-container">
+        <div class="project-contents">
+          <h2 class="project-heading-text">PROJECTS</h2>
+
+          <div class="project-list">
+            <a href="#" class="project-card-link">
+              <section class="project-index-card">
+                <div class="project-index-header">
+                  <span class="project-index-title">Project One</span>
+                  <span class="project-index-year">2026</span>
+                </div>
+                <p class="project-index-desc">
+                  A showcase project — replace this text with your own description and link.
+                </p>
+              </section>
+            </a>
+
+            <a href="#" class="project-card-link">
+              <section class="project-index-card">
+                <div class="project-index-header">
+                  <span class="project-index-title">Project Two</span>
+                  <span class="project-index-year">2025</span>
+                </div>
+                <p class="project-index-desc">
+                  Another project card. Duplicate this block to add more work to your portfolio.
+                </p>
+              </section>
+            </a>
+
+            <a href="#" class="project-card-link">
+              <section class="project-index-card">
+                <div class="project-index-header">
+                  <span class="project-index-title">Project Three</span>
+                  <span class="project-index-year">2025</span>
+                </div>
+                <p class="project-index-desc">
+                  Keep titles short, years on the right, and a one-line pitch underneath.
+                </p>
+              </section>
+            </a>
+          </div>
+
+          <div class="project-btn-wrapper">
+            <a href="#" class="projects-page-link">View All Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-index" id="blogs">
+      <div class="ascii-leaves-parent-container">
+        <img src="assets/ascii-leaves.svg" alt="" class="ascii-art" aria-hidden="true" />
+      </div>
+      <div class="blog-container">
+        <div class="blog-contents">
+          <h2 class="blog-heading-text">BLOGS</h2>
+
+          <div class="blog-index-list" id="blog-index-list">
+            <a href="#" class="blog-single-link">
+              <section class="blog-index-card">
+                <div class="blog-index-header">
+                  <span class="blog-index-year">Jun, 2026</span>
+                  <span class="blog-index-title">Your First Blog Post</span>
+                </div>
+              </section>
+            </a>
+            <a href="#" class="blog-single-link">
+              <section class="blog-index-card">
+                <div class="blog-index-header">
+                  <span class="blog-index-year">May, 2026</span>
+                  <span class="blog-index-title">Building This Portfolio</span>
+                </div>
+              </section>
+            </a>
+            <a href="#" class="blog-single-link">
+              <section class="blog-index-card">
+                <div class="blog-index-header">
+                  <span class="blog-index-year">Apr, 2026</span>
+                  <span class="blog-index-title">Dark Mode &amp; Light Mode</span>
+                </div>
+              </section>
+            </a>
+          </div>
+
+          <div class="blog-btn-wrapper">
+            <a href="#" class="blog-page-link">View All Thoughts</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+    <section class="daily-quote-section">
+      <div class="quote-container">
+        <p id="daily-quote-text" class="quote-text">Loading inspiration...</p>
+      </div>
+    </section>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-content">
+        <h2 class="footer-h1">Paras Patil</h2>
+        <p class="footer-p">
+          Made with HTML, CSS and JS. Edit this footer with your bio, links, and social handles.
+        </p>
+
+        <div class="footer-socials">
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="assets/icons/socials/github.svg" class="social-icon" alt="" />
+          </a>
+          <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="assets/icons/socials/instagram.svg" class="social-icon" alt="" />
+          </a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="assets/icons/socials/linkedin.svg" class="social-icon" alt="" />
+          </a>
+          <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="assets/icons/socials/youtube.svg" class="social-icon" alt="" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
