@@ -73,9 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Scroll animations */
   initScrollObserver();
-
-  /* Bento parallax tilt (lightweight) */
-  initParallaxCards();
 });
 
 window.addEventListener("beforeunload", () => window.scrollTo(0, 0));
@@ -184,37 +181,13 @@ function initScrollObserver() {
     { threshold: 0.1, rootMargin: "0px 0px -30% 0px" }
   );
 
+  /* Every section (About, Experience, Education, Activities, My Work, Blog)
+     shares the same .info-* markup, so one selector list covers them all. */
   document
-    .querySelectorAll(
-      ".project-heading-text, .project-card-link, .project-btn-wrapper, .blog-heading-text, .blog-single-link, .blog-btn-wrapper, .info-heading-text, .info-lede, .info-card, .info-btn-wrapper"
-    )
+    .querySelectorAll(".info-heading-text, .info-lede, .info-card, .info-btn-wrapper")
     .forEach((el) => standardObserver.observe(el));
 
   document
     .querySelectorAll(".ascii-leaf-parent-container, .ascii-leaves-parent-container")
     .forEach((el) => asciiObserver.observe(el));
-}
-
-/* --- Simple parallax tilt on bento cards --- */
-function initParallaxCards() {
-  const cards = document.querySelectorAll(".parallax-card");
-  if (!cards.length || window.matchMedia("(pointer: coarse)").matches) return;
-
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      card.style.zIndex = "10";
-    });
-
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(800px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg) scale(1.02)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
-      card.style.zIndex = "";
-    });
-  });
 }

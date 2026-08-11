@@ -94,39 +94,13 @@
   
   .static-line,
   .action-line,
-  .hero-socials,
-  .software-stack-container,
-  .icon-item {
+  .hero-socials {
     opacity: 0;
   }
   
   .hero-start .static-line { animation: megaEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
   .hero-start .action-line { animation: megaEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
   .hero-start .hero-socials { animation: megaEntrance 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
-  .hero-start .software-stack-container { animation: megaEntrance 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
-  
-  @keyframes iconPop {
-    0% { opacity: 0; transform: translateY(20px) scale(0.4); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-  }
-  
-  .hero-start .icon-flex-row .icon-item,
-  .hero-start .icon-flex-row-lang .icon-item {
-    animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  }
-  
-  .hero-start .icon-item:nth-child(1)  { animation-delay: 0.35s; }
-  .hero-start .icon-item:nth-child(2)  { animation-delay: 0.40s; }
-  .hero-start .icon-item:nth-child(3)  { animation-delay: 0.45s; }
-  .hero-start .icon-item:nth-child(4)  { animation-delay: 0.50s; }
-  .hero-start .icon-item:nth-child(5)  { animation-delay: 0.55s; }
-  .hero-start .icon-item:nth-child(6)  { animation-delay: 0.60s; }
-  .hero-start .icon-item:nth-child(7)  { animation-delay: 0.65s; }
-  .hero-start .icon-item:nth-child(8)  { animation-delay: 0.70s; }
-  .hero-start .icon-item:nth-child(9)  { animation-delay: 0.75s; }
-  .hero-start .icon-item:nth-child(10) { animation-delay: 0.80s; }
-  .hero-start .icon-item:nth-child(11) { animation-delay: 0.85s; }
-  .hero-start .icon-item:nth-child(12) { animation-delay: 0.90s; }
   
   .name-button {
     position: relative;
@@ -145,12 +119,6 @@
   }
   
   /* Scroll-driven entrances */
-  .project-heading-text,
-  .project-card-link,
-  .project-btn-wrapper,
-  .blog-heading-text,
-  .blog-single-link,
-  .blog-btn-wrapper,
   .ascii-leaf-parent-container,
   .ascii-leaves-parent-container,
   .info-heading-text,
@@ -163,11 +131,7 @@
                 transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
                 filter 1.2s ease;
   }
-  
-  .project-heading-text { transform: translateX(-80px) skewX(8deg); filter: blur(4px); }
-  .blog-heading-text { transform: translateX(80px) skewX(-8deg); filter: blur(4px); }
-  .project-card-link, .project-btn-wrapper { transform: translateY(50px); }
-  .blog-single-link, .blog-btn-wrapper { transform: translateY(50px); }
+
   .ascii-leaf-parent-container { transform: translateY(80px); }
   .ascii-leaves-parent-container { transform: translateY(-80px); }
 
@@ -191,64 +155,14 @@
     transform: translateY(0) !important;
   }
   
-  .project-list > a:nth-child(2) { transition-delay: 0.1s; }
-  .project-list > a:nth-child(3) { transition-delay: 0.2s; }
-  .blog-index-list > a:nth-child(2) { transition-delay: 0.08s; }
-  .blog-index-list > a:nth-child(3) { transition-delay: 0.16s; }
   .info-card:nth-child(2) { transition-delay: 0.08s; }
   .info-card:nth-child(3) { transition-delay: 0.16s; }
   .info-card:nth-child(4) { transition-delay: 0.24s; }
   
-  .icon-item img,
-  .icon-item .lang-icon {
-    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-  
-  .icon-item:hover img,
-  .icon-item:hover .lang-icon {
-    transform: translateY(-4px) scale(1.4);
-  }
-  
-  .icon-flex-row:hover .icon-item:not(:hover),
-  .icon-flex-row-lang:hover .icon-item:not(:hover) {
-    opacity: 0.35;
-    transform: scale(0.9);
-  }
-  
-  .project-card-link {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  .project-card-link:hover {
-    transform: translateX(15px) translateY(0);
-  }
-  
-  .project-card-link:hover .project-index-title,
-  .project-card-link:hover .project-index-desc {
-    transform: translateX(5px);
-  }
-  
-  .project-index-title,
-  .project-index-desc {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, opacity 0.4s ease;
-  }
-  
-  .project-card-link:hover .project-index-desc {
-    opacity: 0.9;
-  }
-  
-  .projects-page-link,
-  .blog-page-link {
+  .info-page-link {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease-in-out !important;
   }
   
-  .projects-page-link:hover,
-  .blog-page-link:hover {
+  .info-page-link:hover {
     transform: translateY(-4px) !important;
-  }
-  
-  .parallax-card {
-    transition: transform 0.2s ease-out;
-    will-change: transform;
   }
