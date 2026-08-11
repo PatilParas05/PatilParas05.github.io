@@ -186,7 +186,7 @@ function initScrollObserver() {
 
   document
     .querySelectorAll(
-      ".project-heading-text, .project-card-link, .project-btn-wrapper, .blog-heading-text, .blog-single-link, .blog-btn-wrapper"
+      ".project-heading-text, .project-card-link, .project-btn-wrapper, .blog-heading-text, .blog-single-link, .blog-btn-wrapper, .info-heading-text, .info-lede, .info-card, .info-btn-wrapper"
     )
     .forEach((el) => standardObserver.observe(el));
 
