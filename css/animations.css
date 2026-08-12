@@ -124,7 +124,8 @@
   .info-heading-text,
   .info-lede,
   .info-card,
-  .info-btn-wrapper {
+  .info-btn-wrapper,
+  .about-photo-frame {
     opacity: 0;
     will-change: transform, opacity;
     transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
@@ -138,6 +139,7 @@
   .info-section--left .info-heading-text { transform: translateX(-80px) skewX(8deg); filter: blur(4px); }
   .info-section--right .info-heading-text { transform: translateX(80px) skewX(-8deg); filter: blur(4px); }
   .info-lede, .info-card, .info-btn-wrapper { transform: translateY(50px); }
+  .about-photo-frame { transform: translateY(30px) scale(0.96); }
   
   .in-view {
     opacity: 1 !important;

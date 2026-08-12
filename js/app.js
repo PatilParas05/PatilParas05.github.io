@@ -184,7 +184,7 @@ function initScrollObserver() {
   /* Every section (About, Experience, Education, Activities, My Work, Blog)
      shares the same .info-* markup, so one selector list covers them all. */
   document
-    .querySelectorAll(".info-heading-text, .info-lede, .info-card, .info-btn-wrapper")
+    .querySelectorAll(".info-heading-text, .info-lede, .info-card, .info-btn-wrapper, .about-photo-frame")
     .forEach((el) => standardObserver.observe(el));
 
   document
