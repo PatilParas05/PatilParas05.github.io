@@ -60,25 +60,28 @@
   .about-text {
     flex: 1;
     min-width: 0;
-  }
-  
+  }  
   .about-photo-frame {
     flex-shrink: 0;
-    width: clamp(200px, 22vw, 300px);
-    height: clamp(200px, 22vw, 300px);
+    width: clamp(200px, 50vw, 280px);
+    height: clamp(200px, 50vw, 280px);
+    margin: 0 auto;
     border-radius: 24px;
     overflow: hidden;
-    border: 3px solid var(--section-dark-text);
+    border: 3px solid var(--section-dark-border); /* Uses a softer default border */
     position: relative;
+    /* Added border-color to the transition so it smoothly animates on enter AND exit */
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                 border-radius 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.5s ease;
+                box-shadow 0.5s ease,
+                border-color 0.5s ease;
   }
   
   .about-photo-frame:hover {
     transform: translateY(-6px) rotate(-1.5deg) scale(1.03);
     border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    border-color: var(--special-accent); /* Turns to the special orange/red accent color */
   }
   
   .about-photo {
@@ -90,9 +93,9 @@
   }
   
   .about-photo-frame:hover .about-photo {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Keeps the image zoom effect you already have */
   }
-  
+
   /* Slightly wider container so the About photo has room to sit next to
      the heading without cramping the bio text below it. */
   .info-container--wide {
@@ -205,6 +208,8 @@
     font-size: clamp(15px, 1.1vw, 17px);
     margin-top: 24px;
     opacity: 0.75;
+    text-align: justify;       
+  text-justify: inter-word;  
   }
   
   .info-section--dark .info-lede {
