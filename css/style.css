@@ -110,6 +110,14 @@
    .logo-link h1 {
      font-size: 1.4rem;
      font-weight: 700;
+     display: inline-block;
+     border-bottom: 2px solid transparent;
+     padding-bottom: 2px;
+     transition: border-color 0.3s ease;
+   }
+   
+   .logo-link:hover h1 {
+     border-color: var(--special-accent);
    }
    
    .nav-container {

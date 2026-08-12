@@ -64,6 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  const navItems = document.querySelectorAll(".nav-item");
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      if (navbar.classList.contains("active")) {
+        navbar.classList.remove("active");
+        menuToggle.classList.remove("open");
+      }
+    });
+  });
 
   /* Role ticker */
   initTicker();
