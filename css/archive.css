@@ -6,298 +6,447 @@
 
 /* --- Compact page hero (mirrors .info-section but shorter) --- */
 .archive-hero {
-    min-height: 46vh;
-    display: flex;
-    align-items: center;
-    padding: 130px 15vw 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .archive-hero--dark {
-    background-color: var(--section-dark-bg);
-  }
-  
-  .archive-hero--light {
-    background-color: var(--background-color);
-    background-image: linear-gradient(to bottom, var(--background-color) 80%, var(--blog-gradient-end));
-  }
-  
-  .archive-hero-inner {
-    max-width: 900px;
-  }
-  
-  .archive-eyebrow {
-    font-family: var(--font-primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.6;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .archive-eyebrow::before {
-    content: "";
-    width: 28px;
-    height: 2px;
-    background-color: currentColor;
-    display: inline-block;
-  }
-  
-  .archive-hero--dark .archive-eyebrow,
-  .archive-hero--dark .archive-heading,
-  .archive-hero--dark .archive-lede {
-    color: var(--section-dark-text);
-  }
-  
-  .archive-hero--light .archive-eyebrow {
-    color: var(--accent-text);
-  }
-  
-  .archive-heading {
-    font-family: var(--font-display);
-    letter-spacing: 0.02em;
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    line-height: 0.95;
-    margin-top: 14px;
-  }
-  
-  .archive-hero--light .archive-heading {
-    color: var(--accent-main);
-  }
-  
-  .archive-lede {
-    font-family: var(--font-primary);
-    font-weight: 300;
-    font-size: clamp(15px, 1.2vw, 18px);
-    line-height: 1.7;
-    max-width: 56ch;
-    margin-top: 20px;
-    opacity: 0.75;
-  }
-  
-  .archive-hero--light .archive-lede {
-    color: var(--text-dark);
-  }
-  
-  /* --- Grid --- */
-  .archive-section {
-    background-color: var(--background-color);
-    padding: 80px 15vw 120px;
-    transition: background-color 0.3s ease;
-  }
-  
+  min-height: 46vh;
+  display: flex;
+  align-items: center;
+  padding: 130px 15vw 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.archive-hero--dark {
+  background-color: var(--section-dark-bg);
+}
+
+.archive-hero--light {
+  background-color: var(--background-color);
+  background-image: linear-gradient(to bottom, var(--background-color) 80%, var(--blog-gradient-end));
+}
+
+.archive-hero-inner {
+  max-width: 900px;
+}
+
+.archive-eyebrow {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.archive-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background-color: currentColor;
+  display: inline-block;
+}
+
+.archive-hero--dark .archive-eyebrow,
+.archive-hero--dark .archive-heading,
+.archive-hero--dark .archive-lede {
+  color: var(--section-dark-text);
+}
+
+.archive-hero--light .archive-eyebrow {
+  color: var(--accent-text);
+}
+
+.archive-heading {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 0.95;
+  margin-top: 14px;
+}
+
+.archive-hero--light .archive-heading {
+  color: var(--accent-main);
+}
+
+.archive-lede {
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.7;
+  max-width: 56ch;
+  margin-top: 20px;
+  opacity: 0.75;
+}
+
+.archive-hero--light .archive-lede {
+  color: var(--text-dark);
+}
+
+/* --- Grid --- */
+.archive-section {
+  background-color: var(--background-color);
+  padding: 80px 15vw 120px;
+  transition: background-color 0.3s ease;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 32px;
+}
+
+/* --- Card --- */
+.archive-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-background-color, var(--background-color));
+  border: 2px solid var(--card-border);
+  border-radius: 18px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+[data-theme="light"] .archive-card {
+  background-color: #ffffff;
+}
+
+.archive-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.archive-card:nth-child(3n + 2) { transition-delay: 0.08s; }
+.archive-card:nth-child(3n + 3) { transition-delay: 0.16s; }
+
+.archive-card:hover {
+  transform: translateY(-10px) !important;
+  border-color: var(--special-accent);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.16);
+}
+
+[data-theme="dark"] .archive-card:hover {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* --- Card media (placeholder monogram tile — swap for a real <img> anytime) --- */
+.archive-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-main), var(--special-accent));
+}
+
+.archive-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.archive-card-media-mark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.92);
+  mix-blend-mode: overlay;
+}
+
+.archive-card:hover .archive-card-media img {
+  transform: scale(1.08);
+}
+
+/* --- Card body --- */
+.archive-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 24px 24px 22px;
+}
+
+.archive-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.archive-card-title {
+  font-family: var(--font-primary);
+  font-size: clamp(19px, 1.7vw, 22px);
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.archive-card-meta {
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--accent-text);
+}
+
+.archive-card-desc {
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 10px;
+  opacity: 0.75;
+  color: var(--text-dark);
+}
+
+.archive-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.archive-tag {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  color: var(--accent-text);
+}
+
+/* --- Card CTA: same skew-fill button language as .info-page-link, sized down --- */
+.archive-card-cta {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 2px solid var(--card-border);
+}
+
+.archive-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--accent-main);
+  border: 2px solid var(--accent-main);
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.35s ease-in-out;
+}
+
+.archive-card-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--accent-main);
+  transform: translateX(-105%) skewX(-15deg);
+  transition: transform 0.35s ease-in-out;
+}
+
+.archive-card-link:hover {
+  color: var(--background-color);
+}
+
+.archive-card-link:hover::before {
+  transform: translateX(0) skewX(0deg);
+}
+
+.archive-card-link svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.archive-card-desc + .archive-card-cta,
+.archive-card-tags + .archive-card-cta {
+  margin-top: auto;
+}
+
+.archive-card-body > .archive-card-cta:last-child {
+  margin-top: auto;
+}
+
+/* --- Blog cards don't need the GitHub CTA row spacing pushed to the very
+     bottom the same way — align it flush under the description instead. --- */
+.archive-card-body.archive-card-body--blog .archive-card-cta {
+  margin-top: 18px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
   .archive-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px 32px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* --- Card --- */
-  .archive-card {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--dark-background-color, var(--background-color));
-    border: 2px solid var(--card-border);
-    border-radius: 18px;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.35s ease,
-                box-shadow 0.35s ease;
+}
+
+@media (max-width: 700px) {
+  .archive-hero {
+    padding: 120px 7vw 50px;
+    min-height: 38vh;
   }
-  
-  [data-theme="light"] .archive-card {
-    background-color: #ffffff;
+
+  .archive-section {
+    padding: 50px 6vw 90px;
   }
-  
-  .archive-card.in-view {
-    opacity: 1;
-    transform: translateY(0);
+
+  .archive-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .archive-card:nth-child(3n + 2) { transition-delay: 0.08s; }
-  .archive-card:nth-child(3n + 3) { transition-delay: 0.16s; }
-  
-  .archive-card:hover {
-    transform: translateY(-10px) !important;
-    border-color: var(--special-accent);
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.16);
+}
+
+/* ==========================================================================
+   Blog list — numbered rows with a thumbnail, title, date and excerpt.
+   Used on blog.html instead of the 3-up card grid so posts read as a
+   single chronological feed (latest on top, #1 = oldest, at the bottom).
+   ========================================================================== */
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.blog-post-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 32px 4px;
+  text-decoration: none;
+  border-bottom: 2px solid var(--card-border);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-post-row:first-child {
+  padding-top: 4px;
+}
+
+.blog-post-row:last-child {
+  border-bottom: none;
+}
+
+.blog-post-row.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-post-row:nth-child(2) { transition-delay: 0.05s; }
+.blog-post-row:nth-child(3) { transition-delay: 0.1s; }
+.blog-post-row:nth-child(4) { transition-delay: 0.15s; }
+.blog-post-row:nth-child(5) { transition-delay: 0.2s; }
+.blog-post-row:nth-child(6) { transition-delay: 0.25s; }
+.blog-post-row:nth-child(7) { transition-delay: 0.3s; }
+
+.blog-post-thumb {
+  flex-shrink: 0;
+  width: 280px;
+  height: 190px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--accent-main) 8%, var(--background-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-post-row:hover .blog-post-thumb img {
+  transform: scale(1.04);
+}
+
+.blog-post-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-post-number {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--special-accent);
+  margin-right: 8px;
+}
+
+.blog-post-title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.35;
+  color: var(--text-dark);
+  display: inline;
+  transition: color 0.3s ease;
+}
+
+.blog-post-row:hover .blog-post-title {
+  color: var(--special-accent);
+}
+
+.blog-post-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-text);
+}
+
+.blog-post-date svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.blog-post-desc {
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-dark);
+  opacity: 0.75;
+  margin-top: 12px;
+}
+
+@media (max-width: 700px) {
+  .blog-post-row {
+    gap: 16px;
+    padding: 24px 4px;
   }
-  
-  [data-theme="dark"] .archive-card:hover {
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+
+  .blog-post-thumb {
+    width: 130px;
+    height: 100px;
+    border-radius: 12px;
   }
-  
-  /* --- Card media (placeholder monogram tile — swap for a real <img> anytime) --- */
-  .archive-card-media {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--accent-main), var(--special-accent));
+
+  .blog-post-desc {
+    display: none;
   }
-  
-  .archive-card-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  .archive-card-media-mark {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 3.4rem);
-    letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.92);
-    mix-blend-mode: overlay;
-  }
-  
-  .archive-card:hover .archive-card-media img {
-    transform: scale(1.08);
-  }
-  
-  /* --- Card body --- */
-  .archive-card-body {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 24px 24px 22px;
-  }
-  
-  .archive-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 10px;
-  }
-  
-  .archive-card-title {
-    font-family: var(--font-primary);
-    font-size: clamp(19px, 1.7vw, 22px);
-    font-weight: 600;
-    color: var(--text-dark);
-  }
-  
-  .archive-card-meta {
-    font-family: var(--font-primary);
-    font-size: 13px;
-    font-weight: 600;
-    white-space: nowrap;
-    color: var(--accent-text);
-  }
-  
-  .archive-card-desc {
-    font-family: var(--font-primary);
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-top: 10px;
-    opacity: 0.75;
-    color: var(--text-dark);
-  }
-  
-  .archive-tag {
-    font-family: var(--font-primary);
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--card-border);
-    color: var(--accent-text);
-  }
-  
-  /* --- Card CTA: same skew-fill button language as .info-page-link, sized down --- */
-  .archive-card-cta {
-    margin-top: 20px;
-    padding-top: 18px;
-    border-top: 2px solid var(--card-border);
-  }
-  
-  .archive-card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: var(--accent-main);
-    border: 2px solid var(--accent-main);
-    border-radius: 8px;
-    padding: 9px 16px;
-    font-family: var(--font-primary);
-    font-weight: 500;
-    font-size: 14px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 0.35s ease-in-out;
-  }
-  
-  .archive-card-link::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-color: var(--accent-main);
-    transform: translateX(-105%) skewX(-15deg);
-    transition: transform 0.35s ease-in-out;
-  }
-  
-  .archive-card-link:hover {
-    color: var(--background-color);
-  }
-  
-  .archive-card-link:hover::before {
-    transform: translateX(0) skewX(0deg);
-  }
-  
-  .archive-card-link svg {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-  }
-  
-  .archive-card-desc + .archive-card-cta {
-    margin-top: auto;
-  }
-  
-  .archive-card-body > .archive-card-cta:last-child {
-    margin-top: auto;
-  }
-  
-  /* --- Blog cards don't need the GitHub CTA row spacing pushed to the very
-       bottom the same way — align it flush under the description instead. --- */
-  .archive-card-body.archive-card-body--blog .archive-card-cta {
-    margin-top: 18px;
-  }
-  
-  /* --- Responsive --- */
-  @media (max-width: 1024px) {
-    .archive-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 700px) {
-    .archive-hero {
-      padding: 120px 7vw 50px;
-      min-height: 38vh;
-    }
-  
-    .archive-section {
-      padding: 50px 6vw 90px;
-    }
-  
-    .archive-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+}
