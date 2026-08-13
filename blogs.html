@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blog posts by Paras Patil — Android and AI/ML Engineer." />
+    <title>Blog — Paras Patil</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Ubuntu+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/archive.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <div id="loading-screen">
+      <div class="loader-matrix-container">
+        <div class="matrix-dot"></div>
+        <div class="matrix-dot"></div>
+        <div class="matrix-dot matrix-hero"></div>
+        <div class="matrix-dot"></div>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo-link" aria-label="Home">
+          <h1>Paras Patil</h1>
+        </a>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a6.5 6.5 0 1 0 11.5 11.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#aboutme" class="nav-item">About Me</a></li>
+          <li><a href="index.html#experience" class="nav-item">Experience</a></li>
+          <li><a href="index.html#education" class="nav-item">Education</a></li>
+          <li><a href="index.html#activities" class="nav-item">Activities</a></li>
+          <li><a href="projects.html" class="nav-item">My work</a></li>
+          <li><a href="blogs.html" class="nav-item">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <header class="archive-hero archive-hero--light">
+        <div class="archive-hero-inner">
+          <span class="archive-eyebrow">Notes &amp; writing</span>
+          <h1 class="archive-heading">ALL POSTS</h1>
+          <p class="archive-lede">
+            Occasional write-ups on Android, ML and whatever I'm learning that week —
+            the full archive lives on Medium.
+          </p>
+        </div>
+      </header>
+
+      <section class="archive-section">
+        <div class="archive-grid" id="blog-grid">
+
+          <article class="archive-card">
+            <div class="archive-card-media">
+              <span class="archive-card-media-mark">Aa</span>
+            </div>
+            <div class="archive-card-body archive-card-body--blog">
+              <div class="archive-card-header">
+                <h2 class="archive-card-title">Your First Blog Post</h2>
+                <span class="archive-card-meta">Jun, 2026</span>
+              </div>
+              <p class="archive-card-desc">
+                Replace this with a one or two line summary of what the post is actually about.
+              </p>
+              <div class="archive-card-tags">
+                <span class="archive-tag">Android</span>
+              </div>
+              <div class="archive-card-cta">
+                <a href="https://medium.com/@parasspatil.dev" class="archive-card-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Read the Post
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="archive-card">
+            <div class="archive-card-media">
+              <span class="archive-card-media-mark">Bt</span>
+            </div>
+            <div class="archive-card-body archive-card-body--blog">
+              <div class="archive-card-header">
+                <h2 class="archive-card-title">Building This Portfolio</h2>
+                <span class="archive-card-meta">May, 2026</span>
+              </div>
+              <p class="archive-card-desc">
+                Notes on the design decisions and stack behind this site — swap for your own recap.
+              </p>
+              <div class="archive-card-tags">
+                <span class="archive-tag">Web</span>
+              </div>
+              <div class="archive-card-cta">
+                <a href="https://medium.com/@parasspatil.dev" class="archive-card-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Read the Post
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="archive-card">
+            <div class="archive-card-media">
+              <span class="archive-card-media-mark">Dm</span>
+            </div>
+            <div class="archive-card-body archive-card-body--blog">
+              <div class="archive-card-header">
+                <h2 class="archive-card-title">Dark Mode &amp; Light Mode</h2>
+                <span class="archive-card-meta">Apr, 2026</span>
+              </div>
+              <p class="archive-card-desc">
+                How the theme toggle and CSS variables in this site are structured, end to end.
+              </p>
+              <div class="archive-card-tags">
+                <span class="archive-tag">CSS</span>
+              </div>
+              <div class="archive-card-cta">
+                <a href="https://medium.com/@parasspatil.dev" class="archive-card-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Read the Post
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="archive-card">
+            <div class="archive-card-media">
+              <span class="archive-card-media-mark">Ml</span>
+            </div>
+            <div class="archive-card-body archive-card-body--blog">
+              <div class="archive-card-header">
+                <h2 class="archive-card-title">Getting Started with On-Device ML</h2>
+                <span class="archive-card-meta">Mar, 2026</span>
+              </div>
+              <p class="archive-card-desc">
+                A beginner-friendly walkthrough — replace with your own post summary.
+              </p>
+              <div class="archive-card-tags">
+                <span class="archive-tag">ML</span>
+              </div>
+              <div class="archive-card-cta">
+                <a href="https://medium.com/@parasspatil.dev" class="archive-card-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Read the Post
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="archive-card">
+            <div class="archive-card-media">
+              <span class="archive-card-media-mark">Hk</span>
+            </div>
+            <div class="archive-card-body archive-card-body--blog">
+              <div class="archive-card-header">
+                <h2 class="archive-card-title">What I Learned at My First Hackathon</h2>
+                <span class="archive-card-meta">Feb, 2026</span>
+              </div>
+              <p class="archive-card-desc">
+                Reflections and lessons — swap in your own hackathon takeaways here.
+              </p>
+              <div class="archive-card-tags">
+                <span class="archive-tag">Career</span>
+              </div>
+              <div class="archive-card-cta">
+                <a href="https://medium.com/@parasspatil.dev" class="archive-card-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Read the Post
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="archive-card">
+            <div class="archive-card-media">
+              <span class="archive-card-media-mark">Os</span>
+            </div>
+            <div class="archive-card-body archive-card-body--blog">
+              <div class="archive-card-header">
+                <h2 class="archive-card-title">Why I Contribute to Open Source</h2>
+                <span class="archive-card-meta">Jan, 2026</span>
+              </div>
+              <p class="archive-card-desc">
+                Last placeholder slot — duplicate an &lt;article class="archive-card"&gt; block for every new post.
+              </p>
+              <div class="archive-card-tags">
+                <span class="archive-tag">Open Source</span>
+              </div>
+              <div class="archive-card-cta">
+                <a href="https://medium.com/@parasspatil.dev" class="archive-card-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Read the Post
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-content">
+        <p class="footer-p">
+          Designed and Developed by Paras Shyamkant Patil.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".archive-card");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+        cards.forEach((card) => observer.observe(card));
+      });
+    </script>
+  </body>
+</html>

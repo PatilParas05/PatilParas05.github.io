@@ -378,19 +378,81 @@
   
   /* --- Card hover: only applies when an info-card is a link
      (My Work / Blog); About/Experience/Education/Activities cards are
-     plain divs and are unaffected. --- */
+     plain divs and are unaffected. On hover the card just slides
+     sideways and its text/divider brighten to full white — no
+     background fill or shadow. --- */
   a.info-card {
     text-decoration: none;
-    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
-  
+
+  a.info-card .info-card-title,
+  a.info-card .info-card-meta,
+  a.info-card .info-card-desc {
+    transition: color 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Slightly dimmed by default so the hover brightening reads clearly */
+  .info-section--dark a.info-card .info-card-title,
+  .info-section--dark a.info-card .info-card-desc {
+    opacity: 0.72;
+  }
+
+  .info-section--light a.info-card .info-card-title,
+  .info-section--light a.info-card .info-card-desc {
+    opacity: 0.8;
+  }
+
+  a.info-card:hover .info-card-title,
+  a.info-card:hover .info-card-desc {
+    opacity: 1;
+  }
+
+  .info-section--dark a.info-card:hover .info-card-title,
+  .info-section--dark a.info-card:hover .info-card-desc,
+  .info-section--dark a.info-card:hover .info-card-meta {
+    color: #ffffff;
+  }
+
+  .info-section--light a.info-card:hover .info-card-title,
+  .info-section--light a.info-card:hover .info-card-meta {
+    color: var(--accent-main);
+    opacity: 1;
+  }
+
+  .info-section--light a.info-card:hover .info-card-desc {
+    color: var(--text-dark);
+  }
+
+  a.info-card:hover .info-card-meta {
+    opacity: 1;
+  }
+
+  /* Divider line brightens on hover too */
+  a.info-card {
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+  }
+
+  .info-section--dark a.info-card:hover {
+    border-bottom-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .info-section--light a.info-card:hover {
+    border-bottom-color: color-mix(in srgb, var(--accent-main) 55%, transparent);
+  }
+
   .info-section--left a.info-card:hover {
     transform: translateX(8px);
   }
-  
+
   .info-section--right a.info-card:hover {
     transform: translateX(-8px);
   }
+
+  a.info-card:hover .info-card-meta::after {
+    content: " →";
+  }
+  
   
   /* --- Daily quote --- */
   .daily-quote-section {
