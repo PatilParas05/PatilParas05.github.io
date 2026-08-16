@@ -267,6 +267,7 @@
     font-size: clamp(14px, 1.1vw, 16px);
     line-height: 1.6;
     max-width: 90%;
+    text-align: justify;  
   }
   
   .info-section--right .info-card-desc {
