@@ -537,3 +537,20 @@
       justify-content: center !important;
     }
   }
+/* Link Base Styling (Light Mode Default) */
+.custom-link {
+  text-decoration: none;
+  color: var(--accent-main); /* Uses your existing dark accent color (#1a1a1a / charcoal) */
+  border-bottom: 1.5px solid var(--accent-main);
+  transition: color 0.3s ease, border-color 0.3s ease, opacity 0.2s ease;
+}
+
+.custom-link:hover {
+  opacity: 0.8;
+}
+
+/* Link Styling for Dark Mode */
+[data-theme="dark"] .custom-link {
+  color: #f0f0f0; /* Off-white for high contrast on dark backgrounds */
+  border-bottom-color: #f0f0f0;
+}
