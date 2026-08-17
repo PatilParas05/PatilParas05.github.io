@@ -360,7 +360,10 @@
 .blog-post-thumb {
   flex-shrink: 0;
   width: 280px;
-  height: 190px;
+  /* No fixed height — the box grows/shrinks to fit each image's own
+     aspect ratio (masonry-style), so nothing gets cropped or padded. */
+  max-height: 260px;
+  min-height: 120px;
   border-radius: 16px;
   overflow: hidden;
   background: color-mix(in srgb, var(--accent-main) 8%, var(--background-color));
@@ -371,7 +374,8 @@
 
 .blog-post-thumb img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 260px;
   object-fit: contain;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -443,8 +447,13 @@
 
   .blog-post-thumb {
     width: 130px;
-    height: 100px;
+    max-height: 140px;
+    min-height: 60px;
     border-radius: 12px;
+  }
+
+  .blog-post-thumb img {
+    max-height: 140px;
   }
 
   .blog-post-desc {
