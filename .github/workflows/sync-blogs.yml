@@ -1,0 +1,43 @@
+name: Sync Medium blog posts
+
+on:
+  schedule:
+    # Runs every Monday at 06:00 UTC — adjust as you like.
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {} # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch new Medium posts
+        run: npm run fetch-blogs
+
+      - name: Rebuild blogs.html
+        run: npm run build-blogs
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add data/blogs.json blogs.html
+            git commit -m "chore: sync new Medium blog posts"
+            git push
+          fi

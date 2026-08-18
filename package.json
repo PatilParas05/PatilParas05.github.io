@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-paras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+"scripts": {
+  "fetch-blogs": "node scripts/fetch-blogs.js",
+  "build-blogs": "node scripts/build-blogs-html.js",
+  "sync-blogs": "npm run fetch-blogs && npm run build-blogs"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatilParas05/PatilParas05.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PatilParas05/PatilParas05.github.io/issues"
+  },
+  "homepage": "https://github.com/PatilParas05/PatilParas05.github.io#readme",
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
