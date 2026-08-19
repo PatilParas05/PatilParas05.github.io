@@ -30,6 +30,9 @@ jobs:
       - name: Rebuild blogs.html
         run: npm run build-blogs
 
+      - name: Regenerate sitemap
+        run: npm run generate-sitemap
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
@@ -37,7 +40,7 @@ jobs:
           if git diff --quiet; then
             echo "No changes to commit."
           else
-            git add data/blogs.json blogs.html assets/Blogs/
+            git add data/blogs.json blogs.html assets/Blogs/ sitemap.xml
             git commit -m "chore: sync new Medium blog posts"
             git push
           fi

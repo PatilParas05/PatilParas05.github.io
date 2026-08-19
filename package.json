@@ -6,7 +6,8 @@
   "scripts": {
     "fetch-blogs": "node scripts/fetch-blogs.js",
     "build-blogs": "node scripts/build-blogs-html.js",
-    "sync-blogs": "npm run fetch-blogs && npm run build-blogs"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "sync-blogs": "npm run fetch-blogs && npm run build-blogs && npm run generate-sitemap"
   },
   "repository": {
     "type": "git",
