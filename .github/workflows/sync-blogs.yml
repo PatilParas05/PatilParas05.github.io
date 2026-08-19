@@ -37,7 +37,7 @@ jobs:
           if git diff --quiet; then
             echo "No changes to commit."
           else
-            git add data/blogs.json blogs.html
+            git add data/blogs.json blogs.html assets/Blogs/
             git commit -m "chore: sync new Medium blog posts"
             git push
           fi

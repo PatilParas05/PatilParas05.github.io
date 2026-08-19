@@ -1,3 +1,4 @@
+const fetch = require("node-fetch");
 const fs = require("fs");
 const path = require("path");
 const Parser = require("rss-parser");
@@ -54,8 +55,25 @@ function stripQuery(url) {
     const normalizedTitle = item.title.toLowerCase().replace(/[^\w\s]/g, "").trim();
     if (existingUrls.has(url) || existingTitles.has(normalizedTitle)) continue;
     const html = item.contentEncoded || item.content || "";
-    const image = extractFirstImage(html);
+    const remoteImage = extractFirstImage(html);
     const descSource = stripHtml(html);
+
+    let thumbPath = "assets/Blogs/placeholder.png";
+
+    if (remoteImage) {
+      const ext = path.extname(new URL(remoteImage).pathname) || ".png";
+      const filename = `${slugify(item.title)}${ext}`;
+      const localFsPath = path.join(ROOT, "assets", "Blogs", filename);
+
+      try {
+        await downloadImage(remoteImage, localFsPath);
+        thumbPath = `assets/Blogs/${filename}`;
+        console.log(`  downloaded thumbnail -> ${thumbPath}`);
+      } catch (err) {
+        console.warn(`  could not download thumbnail for "${item.title}": ${err.message}`);
+        thumbPath = remoteImage; // fall back to hotlinking rather than failing the sync
+      }
+    }
 
     newPosts.push({
       number: nextNumber++,
@@ -63,9 +81,7 @@ function stripQuery(url) {
       url,
       date: new Date(item.isoDate).toISOString().slice(0, 10),
       displayDate: toDisplayDate(item.isoDate),
-      // Medium's feed image is a hotlinked CDN URL — good enough to use
-      // directly, or download it locally and swap this path in by hand.
-      thumb: image || "assets/Blogs/placeholder.png",
+      thumb: thumbPath,
       // Auto-generated excerpt — trim/rewrite this by hand for a better hook.
       desc: descSource.slice(0, 160).replace(/\s+\S*$/, "") + "…",
     });
@@ -81,6 +97,22 @@ function stripQuery(url) {
 
   console.log(`Added ${newPosts.length} new post(s):`);
   newPosts.forEach((p) => console.log(`  #${p.number} ${p.title}`));
+
+  async function downloadImage(url, destPath) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Failed to download image: ${res.status}`);
+    const buffer = await res.buffer();
+    fs.writeFileSync(destPath, buffer);
+  }
+  
+  function slugify(title) {
+    return title
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .slice(0, 60);
+  }
 }
 
 main().catch((err) => {
