@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "fetch-blogs": "node scripts/fetch-blogs.js",
-    "build-blogs": "node scripts/build-blogs-html.js",
-    "generate-sitemap": "node scripts/generate-sitemap.js",
-    "sync-blogs": "npm run fetch-blogs && npm run build-blogs && npm run generate-sitemap"
+  "fetch-blogs": "node scripts/fetch-blogs.js",
+  "build-blogs": "node scripts/build-blogs-html.js",
+  "build-index-preview": "node scripts/build-index-blog-preview.js",
+  "generate-sitemap": "node scripts/generate-sitemap.js",
+  "sync-blogs": "npm run fetch-blogs && npm run build-blogs && npm run build-index-preview && npm run generate-sitemap"
   },
   "repository": {
     "type": "git",

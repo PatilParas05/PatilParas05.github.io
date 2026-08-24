@@ -61,5 +61,14 @@
     "displayDate": "8 Jan, 2026",
     "thumb": "assets/Blogs/Building AsyncPic.png",
     "desc": "The story behind AsyncPic — why I built it, the design decisions, and what it takes to ship an image-loading library."
+  },
+  {
+    "number": 8,
+    "title": "I Wrote One Codebase. It Ran on Android, Desktop and Web. Here’s What Nobody Tells You About KMP.",
+    "url": "https://levelup.gitconnected.com/i-wrote-one-codebase-it-ran-on-android-desktop-and-web-heres-what-nobody-tells-you-about-kmp-00e98e27a57c",
+    "date": "2026-08-22",
+    "displayDate": "22 Aug, 2026",
+    "thumb": "assets/Blogs/i-wrote-one-codebase-it-ran-on-android-desktop-and-web-heres.png",
+    "desc": "The real challenges behind building a cross-platform app with Kotlin Multiplatform — and how I solved each one. Hey Kotliners 👋 Let me be honest with you.…"
   }
 ]
