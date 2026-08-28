@@ -119,4 +119,4 @@ If you're pulling changes after the scheduled Action has run, `git pull` before 
 
 ## 📄 License
 
-© Paras Shyamkant Patil. Feel free to use this as a structural reference for your own portfolio, but please don't copy the content or Medium posts wholesale.
+©2026 [Paras Patil](https://patilparas05.github.io) — Licensed under the  [Apache License 2.0](./LICENSE) Feel free to use this as a structural reference for your own portfolio, but please don't copy the content or Medium posts wholesale.
