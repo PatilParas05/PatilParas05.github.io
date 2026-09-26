@@ -1,0 +1,65 @@
+[
+    {
+      "number": 7,
+      "title": "The 2GB Lie: Chasing an Android Emulator Crash from Zombie Processes to Vulkan Drivers",
+      "url": "https://medium.com/@parasspatil.dev/the-2gb-lie-chasing-an-android-emulator-crash-from-zombie-processes-to-vulkan-drivers-a4991a42376b",
+      "date": "2026-06-12",
+      "displayDate": "12 Jun, 2026",
+      "thumb": "assets/Blogs/The 2GB Lie.png",
+      "desc": "Tracing a stubborn Android Emulator crash all the way from zombie processes down to the Vulkan driver layer."
+    },
+    {
+      "number": 6,
+      "title": "Stop Recomposing! 4 Jetpack Compose Performance Rules You Are Probably Breaking 🚀",
+      "url": "https://medium.com/gitconnected/stop-recomposing-4-jetpack-compose-performance-rules-you-are-probably-breaking-5fcc6701157b",
+      "date": "2026-04-22",
+      "displayDate": "22 Apr, 2026",
+      "thumb": "assets/Blogs/Stop Recomposing!.png",
+      "desc": "Four practical rules for keeping Compose recompositions in check — and the subtle mistakes that quietly break them."
+    },
+    {
+      "number": 5,
+      "title": "From Callback Hell to Kotlin Coroutines Heaven — Clean, Fast, and Reliable Android Apps 🚀",
+      "url": "https://medium.com/@parasspatil.dev/from-callback-hell-to-kotlin-coroutines-heaven-clean-fast-and-reliable-android-apps-23210df5fe06",
+      "date": "2026-03-19",
+      "displayDate": "19 Mar, 2026",
+      "thumb": "assets/Blogs/From Callback Hell to Kotlin.png",
+      "desc": "Why Kotlin Coroutines replaced nested callbacks in my Android apps, and what changed for readability and reliability."
+    },
+    {
+      "number": 4,
+      "title": "Stop Writing = SomeClass() — Let Hilt Do It For You",
+      "url": "https://medium.com/@parasspatil.dev/stop-writing-someclass-let-hilt-do-it-for-you-67761b0a59c7",
+      "date": "2026-03-15",
+      "displayDate": "15 Mar, 2026",
+      "thumb": "assets/Blogs/Stop Writing.png",
+      "desc": "A practical case for handing manual dependency construction over to Dagger Hilt in Android projects."
+    },
+    {
+      "number": 3,
+      "title": "MVVM in Android — From Zero to Clean Code With Real Kotlin Examples 🚀",
+      "url": "https://medium.com/@parasspatil.dev/mvvm-in-android-from-zero-to-clean-code-with-real-kotlin-examples-06f85adfa49c",
+      "date": "2026-03-07",
+      "displayDate": "7 Mar, 2026",
+      "thumb": "assets/Blogs/MVVM in Android.png",
+      "desc": "A from-scratch walkthrough of MVVM in Android with real Kotlin examples, built for clarity over boilerplate."
+    },
+    {
+      "number": 2,
+      "title": "Modern Android State Management: Building Scalable Apps with Jetpack Compose",
+      "url": "https://medium.com/@parasspatil.dev/modern-android-state-management-building-scalable-apps-with-jetpack-compose-405643a1592a",
+      "date": "2026-02-23",
+      "displayDate": "23 Feb, 2026",
+      "thumb": "assets/Blogs/Modern Android State Management.png",
+      "desc": "Patterns for structuring state in Compose apps that stay predictable and scale past a single screen."
+    },
+    {
+      "number": 1,
+      "title": "Building AsyncPic: A Premium Image Loading Library for Jetpack Compose",
+      "url": "https://medium.com/@parasspatil.dev/building-asyncpic-a-premium-image-loading-library-for-jetpack-compose-17b87bd25756",
+      "date": "2026-01-08",
+      "displayDate": "8 Jan, 2026",
+      "thumb": "assets/Blogs/Building AsyncPic.png",
+      "desc": "The story behind AsyncPic — why I built it, the design decisions, and what it takes to ship an image-loading library."
+    }
+  ]

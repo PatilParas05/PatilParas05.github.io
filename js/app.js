@@ -74,17 +74,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* Active nav link */
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-item').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || 
+        (currentPage === 'index.html' && href.startsWith('#')) ||
+        (currentPage === '' && href.startsWith('#'))) {
+      // Don't mark hash links as active on the homepage
+    } else if (href === currentPage || href === './' + currentPage) {
+      link.classList.add('nav-active');
+    }
+  });
+
   /* Role ticker */
   initTicker();
 
   /* Daily quote */
   initDailyQuote();
 
+  /* Scroll-to-top button */
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrollTopBtn) {
+    const toggleScrollBtn = () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > window.innerHeight);
+    };
+    window.addEventListener('scroll', toggleScrollBtn, { passive: true });
+    toggleScrollBtn();
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   /* Scroll animations */
   initScrollObserver();
 });
-
-window.addEventListener("beforeunload", () => window.scrollTo(0, 0));
 
 /* --- Ticker --- */
 function initTicker() {

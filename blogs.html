@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Blog posts by Paras Patil — Android and AI/ML Engineer." />
+    <meta property="og:title" content="Blog — Paras Patil" />
+    <meta property="og:description" content="Blog posts by Paras Patil — Android and AI/ML Engineer." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://patilparas05.github.io/blogs.html" />
     <title>Blog — Paras Patil</title>
-    <link rel="icon" type="img/png" href="assets/img/p.png" />
+    <link rel="icon" type="image/png" href="assets/img/p.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,7 +36,7 @@
     <nav class="navbar">
       <div class="nav-container">
         <a href="index.html" class="logo-link" aria-label="Home">
-          <h1>Paras Patil</h1>
+          <span class="logo-text">Paras Patil</span>
         </a>
 
         <div class="nav-actions">
@@ -222,5 +226,10 @@
         rows.forEach((row) => observer.observe(row));
       });
     </script>
+    <button class="scroll-top" id="scroll-top" type="button" aria-label="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
   </body>
 </html>

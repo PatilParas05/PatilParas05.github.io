@@ -538,3 +538,100 @@
        padding: 40vh 10px 20px;
      }
    }
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.3s ease;
+}
+
+.logo-link:hover .logo-text {
+  border-color: var(--special-accent);
+}
+
+.nav-active {
+  color: var(--accent-main) !important;
+  font-weight: 600;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--card-border);
+  background: var(--navbar-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+  z-index: 999;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background-color: var(--accent-main);
+  border-color: var(--accent-main);
+  color: var(--background-color);
+  transform: translateY(-4px);
+}
+
+.scroll-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--section-dark-border);
+  color: var(--section-dark-text);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-social-link:hover {
+  transform: translateY(-4px);
+  background-color: var(--section-dark-text);
+  border-color: var(--section-dark-text);
+  color: var(--dark-background-color);
+}
+
+.footer-social-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
