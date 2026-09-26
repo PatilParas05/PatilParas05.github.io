@@ -1,23 +1,24 @@
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.resolve(__dirname,"..");
-const DATA_PATH = path.join(ROOT,"data","blogs.json");
-const HTML_PATH = path.join(ROOT,"blogs.html");
+const ROOT = path.resolve(__dirname, "..");
+const DATA_PATH = path.join(ROOT, "data", "blogs.json");
+const HTML_PATH = path.join(ROOT, "blogs.html");
 
-const START_MARKER = "<!--BLOG_LIST_START -->";
-const END_MARKER = "<!--BLOG_LIST_END -->";
+// Tolerant of a space after <!-- (editors like VS Code/Prettier often add one)
+const START_RE = /<!--\s*BLOG_LIST_START\s*-->/;
+const END_RE = /<!--\s*BLOG_LIST_END\s*-->/;
 
-function escapeHtml(str){
-    return str
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;");
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
-function renderPost(post){
-    return `
+function renderPost(post) {
+  return `
      <a href="${escapeHtml(post.url)}" class="blog-post-row" target="_blank" rel="noopener">
             <div class="blog-post-thumb">
               <img src="${escapeHtml(post.thumb)}" alt="${escapeHtml(post.title)} thumbnail" loading="lazy" />
@@ -34,27 +35,33 @@ function renderPost(post){
             </div>
           </a>`;
 }
-function main(){
-    const posts = JSON.parse(fs.readFileSync(DATA_PATH,"utf8"));
 
-    posts.sort((a,b)=>new DataTransfer(b.data)- new DataTransfer(a.date));
+function main() {
+  const posts = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
 
-    const rendered = posts.map(renderPost).join("\n")+"\n          ";
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    const html = fs.readFileSync(HTML_PATH,"utf8");
-    const startIdx = html.indexOf(START_MARKER);
-    const endIdx = html.indexOf(END_MARKER)
-    if(startIdx === -1 || endIdx=== -1){
+  const rendered = posts.map(renderPost).join("\n") + "\n          ";
+
+  const html = fs.readFileSync(HTML_PATH, "utf8");
+  const startMatch = html.match(START_RE);
+  const endMatch = html.match(END_RE);
+
+  if (!startMatch || !endMatch) {
     console.error("Could not find BLOG_LIST_START / BLOG_LIST_END markers in blogs.html");
     process.exit(1);
-    }
+  }
 
-    const before = html.slice(0,startIdx + START_MARKER.length);
-    const after = html.slice(endIdx);
+  const startIdx = startMatch.index + startMatch[0].length;
+  const endIdx = endMatch.index;
 
-    const newHtml = `${before}\n${rendered}\n           ${after}`;
+  const before = html.slice(0, startIdx);
+  const after = html.slice(endIdx);
 
-    fs.writeFileSync(HTML_PATH,newHtml,"utf8");
-    console.log(`Wrote ${posts.length} posts into blogs.html`);
+  const newHtml = `${before}\n${rendered}\n           ${after}`;
+
+  fs.writeFileSync(HTML_PATH, newHtml, "utf8");
+  console.log(`Wrote ${posts.length} posts into blogs.html`);
 }
+
 main();
