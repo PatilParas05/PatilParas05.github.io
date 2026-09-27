@@ -3,7 +3,6 @@
 if (history.scrollRestoration) {
   history.scrollRestoration = "manual";
 }
-window.scrollTo(0, 0);
 
 /* --- Theme (dark / light) --- */
 (function initTheme() {
@@ -20,8 +19,74 @@ function toggleTheme() {
   localStorage.setItem("portfolio-theme", next);
 }
 
+function initParallax() {
+  let ticking = false;
+  
+  function updateParallax() {
+    // ASCII art parallax
+    document.querySelectorAll('.ascii-leaf-parent-container, .ascii-leaves-parent-container').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const speed = el.classList.contains('ascii-leaf-parent-container') ? 0.15 : -0.1;
+        const yOffset = (rect.top - windowHeight / 2) * speed;
+        el.style.transform = `translateY(${yOffset}px)`;
+      }
+    });
+    
+    ticking = false;
+  }
+  
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+function initMagneticHover() {
+  const magneticElements = document.querySelectorAll('.hero-social-link, .footer-social-link, .info-page-link, .scroll-top, .theme-toggle');
+  
+  magneticElements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const strength = 0.3;
+      el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+      el.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+      setTimeout(() => { el.style.transition = ''; }, 400);
+    });
+  });
+}
+
+
 /* --- Preloader --- */
 document.addEventListener("DOMContentLoaded", () => {
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    autoStart: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Only enable parallax on non-touch devices
+  if (!('ontouchstart' in window)) {
+    initParallax();
+    initMagneticHover();
+  }
+
   const minimumDisplayTime = new Promise((resolve) => setTimeout(resolve, 1000));
   const pageHasLoaded = new Promise((resolve) => {
     if (document.readyState === "complete") resolve();
@@ -34,6 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loader.classList.add("elements-out", "fade-out");
     document.body.classList.add("hero-start");
+
+    /* Start Lenis after preloader fades */
+    lenis.start();
+    window.scrollTo(0, 0);
 
     loader.addEventListener("transitionend", (e) => {
       if (e.target === loader && e.propertyName === "opacity") {
@@ -213,6 +282,7 @@ function initScrollObserver() {
     },
     { threshold: 0.1, rootMargin: "0px 0px -30% 0px" }
   );
+
 
   /* Every section (About, Experience, Education, Activities, My Work, Blog)
      shares the same .info-* markup, so one selector list covers them all. */
