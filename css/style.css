@@ -342,6 +342,7 @@
    }
 
    .hero-social-link {
+     position: relative;
      display: flex;
      align-items: center;
      justify-content: center;
@@ -609,6 +610,7 @@
 }
 
 .footer-social-link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -630,6 +632,89 @@
 .footer-social-icon {
   width: 18px;
   height: 18px;
+}
+
+/* --- Social Tooltips --- */
+.hero-social-link::after,
+.footer-social-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 5px 9px;
+  font-family: var(--font-primary);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  z-index: 50;
+  line-height: 1.2;
+}
+
+.hero-social-link:not([data-tooltip])::after,
+.footer-social-link:not([data-tooltip])::after {
+  content: attr(aria-label);
+}
+
+.hero-social-link::before,
+.footer-social-link::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  z-index: 50;
+}
+
+.hero-social-link::after {
+  background-color: var(--accent-main);
+  color: var(--background-color);
+}
+
+.hero-social-link::before {
+  border-color: var(--accent-main) transparent transparent transparent;
+}
+
+.footer-social-link::after {
+  background-color: var(--section-dark-text);
+  color: var(--dark-background-color);
+}
+
+.footer-social-link::before {
+  border-color: var(--section-dark-text) transparent transparent transparent;
+}
+
+@media (hover: hover) {
+  .hero-social-link:hover::after,
+  .hero-social-link:hover::before,
+  .footer-social-link:hover::after,
+  .footer-social-link:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.hero-social-link:focus-visible::after,
+.hero-social-link:focus-visible::before,
+.footer-social-link:focus-visible::after,
+.footer-social-link:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 .footer-copy {
