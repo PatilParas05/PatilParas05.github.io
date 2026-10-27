@@ -182,12 +182,17 @@ document.addEventListener("DOMContentLoaded", () => {
 /* --- Ticker --- */
 function initTicker() {
   const track = document.getElementById("ticker-track");
-  if (!track) return;
+  if (!track || track.children.length === 0) return;
+
+  if (!track.querySelector(".ticker-clone")) {
+    const firstClone = track.children[0].cloneNode(true);
+    firstClone.classList.add("ticker-clone");
+    track.appendChild(firstClone);
+  }
 
   const totalItems = track.children.length;
-  const tickerRestDuration = 75;
-  const slideDuration = 200;
-  const tickerSpeed = tickerRestDuration + slideDuration;
+  const slideDuration = 600;
+  const itemDisplayDuration = 2500;
   let tickerIndex = 0;
   let timeoutId = null;
 
@@ -199,10 +204,11 @@ function initTicker() {
       track.style.transform = `translateY(-${tickerIndex * (100 / totalItems)}%)`;
     });
 
-    let nextDelay = tickerSpeed;
-    const checkIndex = tickerIndex % (totalItems - 1);
-    if (track.children[checkIndex]?.classList.contains("ticker-item-gold")) {
-      nextDelay = 5000;
+    const currentChild = track.children[tickerIndex];
+    let nextDelay = itemDisplayDuration + slideDuration;
+
+    if (currentChild?.classList.contains("ticker-item-gold")) {
+      nextDelay = 3000 + slideDuration;
     }
 
     if (tickerIndex === totalItems - 1) {
@@ -219,7 +225,7 @@ function initTicker() {
   }
 
   function start() {
-    timeoutId = setTimeout(playTicker, 1200);
+    timeoutId = setTimeout(playTicker, itemDisplayDuration);
   }
 
   if (document.body.classList.contains("hero-start")) {

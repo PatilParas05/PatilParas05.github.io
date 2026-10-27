@@ -321,7 +321,8 @@
      transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
    }
    
-   .ticker-item {
+   .ticker-item,
+   .ticker-item-gold {
      display: block;
      white-space: nowrap;
      height: calc(clamp(4rem, 10vw, 5.5rem) * var(--line-height-hero));
