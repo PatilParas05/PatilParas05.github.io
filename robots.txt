@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://patilparas05.github.io/sitemap.xml
+Sitemap: https://parasspatil.dev/sitemap.xml

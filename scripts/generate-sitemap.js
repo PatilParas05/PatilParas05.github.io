@@ -5,7 +5,7 @@ const ROOT = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT, "data", "blogs.json");
 const SITEMAP_PATH = path.join(ROOT, "sitemap.xml");
 
-const SITE_URL = "https://patilparas05.github.io"; 
+const SITE_URL = "https://parasspatil.dev"; 
 
 // Static pages on your site — add/remove as your site grows.
 const STATIC_PAGES = [

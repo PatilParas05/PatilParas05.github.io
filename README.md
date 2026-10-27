@@ -1,6 +1,6 @@
 # Paras Patil — Portfolio
 
-My personal portfolio site, built with plain HTML/CSS/JS — no framework, no build step for the core site. Live at [patilparas05.github.io](https://patilparas05.github.io).
+My personal portfolio site, built with plain HTML/CSS/JS — no framework, no build step for the core site. Live at [parasspatil.dev](https://parasspatil.dev).
 
 ## ✨ Features
 
@@ -119,4 +119,4 @@ If you're pulling changes after the scheduled Action has run, `git pull` before 
 
 ## 📄 License
 
-©2026 [Paras Patil](https://patilparas05.github.io) — Licensed under the  [Apache License 2.0](./LICENSE) Feel free to use this as a structural reference for your own portfolio, but please don't copy the content or Medium posts wholesale.
+©2026 [Paras Patil](https://parasspatil.dev) — Licensed under the  [Apache License 2.0](./LICENSE) Feel free to use this as a structural reference for your own portfolio, but please don't copy the content or Medium posts wholesale.
