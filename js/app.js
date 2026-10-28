@@ -102,7 +102,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Start Lenis after preloader fades */
     lenis.start();
-    window.scrollTo(0, 0);
+    if (window.location.hash) {
+      const hashTarget = document.querySelector(window.location.hash);
+      if (hashTarget) {
+        lenis.scrollTo(hashTarget, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
 
     loader.addEventListener("transitionend", (e) => {
       if (e.target === loader && e.propertyName === "opacity") {
