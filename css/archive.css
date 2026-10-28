@@ -460,3 +460,57 @@
     display: none;
   }
 }
+/* --- Category Section Divider (with line and text) --- */
+.project-category-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 32px 0 10px;
+  width: 100%;
+}
+
+.project-category-divider:first-of-type {
+  margin-top: 0;
+}
+
+.project-category-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--card-border);
+  position: relative;
+}
+
+.project-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-main);
+  background: var(--dark-background-color, var(--background-color));
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--card-border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .project-category-badge {
+  background: #ffffff;
+}
+
+.project-category-badge .category-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--special-accent);
+}
+
+.project-category-count {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  font-weight: 500;
+}
