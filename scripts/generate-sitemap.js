@@ -10,8 +10,8 @@ const SITE_URL = "https://parasspatil.dev";
 // Static pages on your site — add/remove as your site grows.
 const STATIC_PAGES = [
   { loc: "/", priority: "1.0", changefreq: "monthly" },
-  { loc: "/projects.html", priority: "0.8", changefreq: "monthly" },
-  { loc: "/blogs.html", priority: "0.8", changefreq: "weekly" },
+  { loc: "/projects", priority: "0.8", changefreq: "monthly" },
+  { loc: "/blogs", priority: "0.8", changefreq: "weekly" },
 ];
 
 function main() {

@@ -152,15 +152,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* Strip .html extension from URL bar if accessed directly */
+  if (window.location.pathname.endsWith('.html')) {
+    const cleanPath = window.location.pathname
+      .replace(/\/index\.html$/, '/')
+      .replace(/\.html$/, '');
+    window.history.replaceState(null, '', (cleanPath || '/') + window.location.search + window.location.hash);
+  }
+
   /* Active nav link */
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  const cleanCurrent = currentPath.replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-item').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage || 
-        (currentPage === 'index.html' && href.startsWith('#')) ||
-        (currentPage === '' && href.startsWith('#'))) {
-      // Don't mark hash links as active on the homepage
-    } else if (href === currentPage || href === './' + currentPage) {
+    if (!href) return;
+    const cleanHref = href.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    if (cleanHref === cleanCurrent && cleanCurrent !== '/') {
       link.classList.add('nav-active');
     }
   });
