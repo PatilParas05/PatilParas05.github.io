@@ -144,7 +144,8 @@
   .in-view {
     opacity: 1 !important;
     transform: translateX(0) translateY(0) scale(1) skewX(0deg) !important;
-    filter: blur(0) !important;
+    filter: none !important;
+    will-change: auto !important;
   }
 
   
