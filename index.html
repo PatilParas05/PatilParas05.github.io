@@ -95,7 +95,7 @@
           <div class="headline-stack">
             <h1 class="static-line">
               HEY, I'M
-              <a href="#contact" class="stroke-text name-button" data-text="YOUR NAME">Paras Patil</a>
+              <a href="#contact" class="stroke-text name-button">Paras Patil</a>
             </h1>
 
             <div class="action-line">
@@ -187,7 +187,23 @@
       <div class="info-container info-container--wide">
         <div class="info-contents about-layout">
           <div class="about-photo-frame">
-            <img src="assets/img/parasss.jpeg" alt="Paras Patil" class="about-photo" loading="lazy" />
+            <!-- Optimised portrait: WebP (21 KB) for modern browsers,
+                 progressive JPEG (24 KB) fallback — down from 2 MB original.
+                 loading="eager" ensures it arrives before the preloader
+                 window.load event, eliminating the long spinner on slow
+                 networks. width/height prevent layout shift (CLS = 0). -->
+            <picture>
+              <source srcset="assets/img/paras-opt.webp" type="image/webp" />
+              <img
+                src="assets/img/paras-opt.jpg"
+                alt="Paras Patil"
+                class="about-photo"
+                width="280"
+                height="280"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           <div class="about-text">
